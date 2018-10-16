@@ -1,0 +1,20 @@
+{
+  "geo_providers" : [
+    {
+      "name" : "google",
+      "base_url" : "https://maps.googleapis.com/maps/api/geocode/json?key=0123456789abcdef&address=",
+      "res_path" : "results 0 geometry location",
+      "loc_keys" : "lat lng",
+      "stat_key" : "status",
+      "stat_val" : "OK"
+    },
+    {
+      "name" : "here",
+      "base_url" : "https://geocoder.api.here.com/6.2/geocode.json?app_id=0123456789abcdef&app_code=0123456789abcdef&searchtext=",
+      "res_path" : "Response View 0 Result 0 Location DisplayPosition",
+      "loc_keys" : "Latitude Longitude",
+      "stat_key" : "Response View 0 Result 0 Relevance",
+      "stat_val" : "1"
+    }
+  ]
+}
