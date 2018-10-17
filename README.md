@@ -23,6 +23,7 @@ $ python3 geoproxy.py
 ```
 
 To test the service:  
+  
 http://localhost:8000/geocode?addr=123+evergreen+terrace
 
 
