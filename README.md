@@ -4,7 +4,7 @@ RESTful Geocode proxy service.  Used as a proxy for 3rd party geocode providers.
 # Development Status
 Version 0.1 (ALPHA)  
 Python 3.7+ recommended  
-- (lower versions may work, but project not currently tested against multiple Python versions)
+- lower versions may work, but project not currently tested against multiple Python versions
 
 # Features
 Multiple 3rd party geocode provider support, configurable via JSON properties file.
@@ -30,4 +30,42 @@ optional arguments:
   --debug          run debug mode against test data
 ```
 
-FYI debug mode use JSON data files with naming convention '{provider name}_sample.json' where {provider name} comes from the providers.json props file.  Both the sample data file and the provider props must exist.
+* debug mode use JSON data files with naming convention '{provider name}_sample.json' where {provider name} comes from the providers.json props file.  Both the sample data file and the provider props must exist.
+
+# Providers Props File
+
+Sample file:
+```
+{
+  "geo_providers" : [
+    {
+      "name" : "google",
+      "base_url" : "https://maps.googleapis.com/maps/api/geocode/json?key=0123456789abcdef&address=",
+      "res_path" : "results 0 geometry location",
+      "loc_keys" : "lat lng",
+      "stat_key" : "status",
+      "stat_val" : "OK"
+    },
+    {
+      "name" : "here",
+      "base_url" : "https://geocoder.api.here.com/6.2/geocode.json?app_id=0123456789abcdef&app_code=0123456789abcdef&searchtext=",
+      "res_path" : "Response View 0 Result 0 Location DisplayPosition",
+      "loc_keys" : "Latitude Longitude",
+      "stat_key" : "Response View 0 Result 0 Relevance",
+      "stat_val" : "1"
+    }
+  ]
+}
+```
+
+* Must contain 'geo_providers' as top element
+* Each provider entry must contain:
+  * name: provider name
+  * base_url: base URL including prepopulated API keys, ending with provider address field
+  * res_path: successful response path to provider's latitude & longitude coordinates
+  * loc_keys: provider's latitude & longitude keys (found in result of above 'res_path')
+  * stat_key: provider's path to response status
+  * stat_val: expected value for successful response
+
+FYI 'path' values above (ie, res_path & stat_key) uses space-separated values, with strings used to access JSON string keys and ints used to index JSON array elements
+
