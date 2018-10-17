@@ -58,9 +58,10 @@ Sample file:
 }
 ```
 
+* Must be named 'providers.json'
 * Must contain 'geo_providers' as top element
 * Each provider entry must contain:
-  * name: provider name
+  * name: provider name, as a single word
   * base_url: base URL including prepopulated API keys, ending with provider address field
   * res_path: successful response path to provider's latitude & longitude coordinates
   * loc_keys: provider's latitude & longitude keys (found in result of above 'res_path')
