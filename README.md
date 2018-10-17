@@ -90,7 +90,7 @@ Sample file:
   * res_path: successful response path to provider's latitude & longitude coordinates
   * loc_keys: provider's key names for latitude & longitude, in that order
   * stat_key: provider's path to response status
-  * stat_val: expected value for successful response
+  * stat_val: expected status value for successful response
 
 FYI 'path' values above (ie, res_path & stat_key) uses space-separated values, with strings used to access JSON string keys and ints used to index JSON array elements
 
