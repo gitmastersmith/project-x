@@ -7,12 +7,24 @@ Python 3.7+ recommended
 - lower versions may work, but project not currently tested against multiple Python versions
 
 # Features
-Multiple 3rd party geocode provider support, configurable via JSON properties file.
+Multiple 3rd party geocode provider support, configurable via JSON properties file. Providers will be contacted in their order in the properties filed.  The first successful response returns that provider's coordinates.
+
+This service will return the following response codes:  
+- 200: all is well, coordinates returned
+- 400: malformed request (ie, missing/bad arguments)
+- 404: unknown resource (ie, bad relative path)
+- 500: service caught an unexpected exception
+- 502: all 3rd party geocode providers failed to resolve the requested address
 
 # Quick Start
+To run the service:
 ```
 $ python3 geoproxy.py
 ```
+
+To test the service:  
+http://localhost:8000/geocode?addr=123+evergreen+terrace
+
 
 # Command Line Interface
 ```
