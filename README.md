@@ -24,7 +24,12 @@ How to use the services API:
   
 http://localhost:8000/geocode?addr=742+evergreen+terrace
 
-This service will return the following response codes:  
+Success returns results using the following format:
+```
+{"status": "ok", "loc": "lat: 37.736834, lon: -122.387253"}
+```
+
+This service supports the following HTTP response codes:  
 - 200: all is well, coordinates returned
 - 400: malformed request (ie, missing/bad arguments)
 - 404: unknown resource (ie, bad relative path)
