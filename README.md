@@ -1,13 +1,28 @@
 # Project-X
-RESTful Geocode proxy service.  Used as a proxy for 3rd party geocode providers.  Single threaded for single process multiple deployment in microservices environment or as a limited load stand-alone service.
+RESTful geocode proxy service.  Used as a reverse proxy for 3rd party geocode providers.
+
+
+# Features
+- Usable in single process multiple deployment in microservices environment or as a limited load stand-alone service.
+- Multiple 3rd party geocode provider support, configurable via JSON properties file.
+- Providers will be contacted in order listed in the properties file.  The first successful response returns that provider's coordinates.
+
 
 # Development Status
 Version 0.1 (ALPHA)  
 Python 3.7+ recommended  
 - lower versions may work, but project not currently tested against multiple Python versions
 
-# Features
-Multiple 3rd party geocode provider support, configurable via JSON properties file. Providers will be contacted in their order in the properties filed.  The first successful response returns that provider's coordinates.
+
+# Quick Start
+How to run the service:
+```
+$ python3 geoproxy.py
+```
+
+How to use the services API:  
+  
+http://localhost:8000/geocode?addr=742+evergreen+terrace
 
 This service will return the following response codes:  
 - 200: all is well, coordinates returned
@@ -15,16 +30,6 @@ This service will return the following response codes:
 - 404: unknown resource (ie, bad relative path)
 - 500: service caught an unexpected exception
 - 502: all 3rd party geocode providers failed to resolve the requested address
-
-# Quick Start
-To run the service:
-```
-$ python3 geoproxy.py
-```
-
-To test the service:  
-  
-http://localhost:8000/geocode?addr=123+evergreen+terrace
 
 
 # Command Line Interface
@@ -45,7 +50,8 @@ optional arguments:
 
 * debug mode use JSON data files with naming convention '{provider name}_sample.json' where {provider name} comes from the providers.json props file.  Both the sample data file and the provider props must exist.
 
-# Providers Props File
+
+# Providers Properties File
 
 Sample file:
 ```
