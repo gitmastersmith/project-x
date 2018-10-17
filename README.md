@@ -88,7 +88,7 @@ Sample file:
   * name: provider name, as a single word
   * base_url: base URL including prepopulated API keys, ending with provider address field
   * res_path: successful response path to provider's latitude & longitude coordinates
-  * loc_keys: provider's latitude & longitude keys (found in result of above 'res_path')
+  * loc_keys: provider's key names for latitude & longitude, in that order
   * stat_key: provider's path to response status
   * stat_val: expected value for successful response
 
