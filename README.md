@@ -1,11 +1,11 @@
 # Project-X
-RESTful geocode proxy service.  Used as a reverse proxy for 3rd party geocode providers.
+RESTful geocode proxy service.  Used as a reverse proxy to fetch address coordinates from 3rd party geocode providers.
 
 
 # Features
-- Usable in single process multiple deployment in microservices environment or as a limited load stand-alone service.
 - Multiple 3rd party geocode provider support, configurable via JSON properties file.
 - Providers will be contacted in order listed in the properties file.  The first successful response returns that provider's coordinates.
+- Usable in single process multiple deployment in microservices environment or as a limited load stand-alone service.
 
 
 # Development Status
