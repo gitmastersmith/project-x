@@ -1,4 +1,19 @@
 language: python
+
 python:
-  - "3.6"
   - "3.7-dev"
+
+# command to install dependencies
+install:
+#  - pip install -r requirements.txt
+#  - pip install .
+# Print the environment.
+  - which python
+  - which pip
+  - which py.test
+  - py.test --version
+  - pip freeze
+
+# command to run tests
+script:
+  - echo "No test!"
